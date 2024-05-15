@@ -1,0 +1,15 @@
+.footer {
+  @apply flex flex-col items-center gap-6 border-t border-neutral-200 bg-white text-sm py-4 sm:px-8 md:flex-row md:justify-between md:py-5;
+}
+
+.sectionPrimary {
+  @apply flex flex-wrap content-start items-center justify-center gap-1 self-stretch;
+
+  a {
+    @apply whitespace-nowrap;
+  }
+}
+
+.sectionSecondary {
+  @apply flex flex-col items-center gap-1 md:flex-row;
+}

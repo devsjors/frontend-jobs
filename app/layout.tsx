@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
-import type { FC } from "react";
-import { Inter as FontSans } from "next/font/google";
+import BaseLayout from "@/layouts/Base";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
+import type { Metadata } from "next";
+import { Inter as FontSans } from "next/font/google";
+import type { FC } from "react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -18,14 +19,11 @@ const RootLayout: FC<Readonly<{ children: React.ReactNode }>> = ({
   children,
 }) => {
   return (
-    <html lang="en">
+    <html lang="en" className="size-full">
       <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
+        className={cn("size-full font-sans antialiased", fontSans.variable)}
       >
-        {children}
+        <BaseLayout>{children}</BaseLayout>
       </body>
     </html>
   );
