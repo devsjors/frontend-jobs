@@ -13,8 +13,12 @@
 .logoWrapper {
   @apply flex-1 items-center space-x-2 sm:flex;
 
+  svg {
+    @apply size-5;
+  }
+
   span {
-    @apply hidden font-bold sm:inline-block;
+    @apply hidden font-bold text-sm sm:inline-block;
   }
 }
 
