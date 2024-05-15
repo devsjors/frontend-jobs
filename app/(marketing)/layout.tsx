@@ -1,17 +1,10 @@
-import Footer from "@/components/Containers/Footer";
-import NavBar from "@/components/Containers/NavBar";
+import DefaultLayout from "@/layouts/Default";
 import type { FC } from "react";
 
 const MarketingLayout: FC<Readonly<{ children: React.ReactNode }>> = ({
   children,
 }) => {
-  return (
-    <>
-      <NavBar />
-      {children}
-      <Footer />
-    </>
-  );
+  return <DefaultLayout>{children}</DefaultLayout>;
 };
 
 export default MarketingLayout;
