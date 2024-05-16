@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { Command, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState, type FC } from "react";
@@ -19,32 +18,42 @@ const NavBar: FC = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className={styles.header}>
-      <nav className={styles.container}>
-        <div className={styles.logoAndMobileItemsToggler}>
-          <Link className={styles.logoWrapper} href="/" aria-label="Home">
-            <Command />
-            <span>Frontend Jobs</span>
-          </Link>
+    <>
+      <header className={styles.header}>
+        <nav className={styles.container}>
+          <div className={styles.logo}>
+            <Link href="/" aria-label="Home">
+              <Command />
+              <span>Frontend Jobs</span>
+            </Link>
+          </div>
 
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-            className={styles.mobileItemsToggler}
-          >
-            {navInteractionIcons[isMenuOpen ? "close" : "open"]}
-          </button>
-        </div>
+          <div className={isMenuOpen ? styles.navItemsMobile : styles.navItems}>
+            <ul>
+              <li>Nav item X</li>
+              <li>Nav item Y</li>
+              <li>Nav item Z</li>
+            </ul>
+          </div>
 
-        <div className={cn(styles.main, isMenuOpen ? "flex" : "hidden")}>
-          <ul className={styles.navItems}>
-            <li>Nav item X</li>
-            <li>Nav item Y</li>
-            <li>Nav item Z</li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+          <div className={styles.authButtonsAndMobileItemsToggler}>
+            <Link href="/login">Sign in</Link>
+
+            <Link href="/sign-up" className={styles.signUpLink}>
+              Sign up
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              className={styles.mobileItemsToggler}
+            >
+              {navInteractionIcons[isMenuOpen ? "close" : "open"]}
+            </button>
+          </div>
+        </nav>
+      </header>
+    </>
   );
 };
 

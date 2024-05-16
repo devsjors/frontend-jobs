@@ -21,7 +21,10 @@ const RootLayout: FC<Readonly<{ children: React.ReactNode }>> = ({
   return (
     <html lang="en" className="size-full">
       <body
-        className={cn("size-full font-sans antialiased", fontSans.variable)}
+        className={cn(
+          "size-full font-sans antialiased bg-white text-gray-900",
+          fontSans.variable
+        )}
       >
         <BaseLayout>{children}</BaseLayout>
       </body>
