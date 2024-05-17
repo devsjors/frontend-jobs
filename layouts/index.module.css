@@ -9,3 +9,11 @@
     @apply items-center justify-center;
   }
 }
+
+.authLayout {
+  @apply flex w-full items-center justify-center row-span-full px-4 py-14 md:px-14 lg:px-28;
+
+  main {
+    @apply flex flex-col items-center justify-center w-full;
+  }
+}

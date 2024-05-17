@@ -39,7 +39,7 @@ const NavBar: FC = () => {
           <div className={styles.authButtonsAndMobileItemsToggler}>
             <Link href="/login">Sign in</Link>
 
-            <Link href="/sign-up" className={styles.signUpLink}>
+            <Link href="/register" className={styles.signUpLink}>
               Sign up
             </Link>
 

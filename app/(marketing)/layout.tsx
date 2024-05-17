@@ -1,10 +1,10 @@
 import DefaultLayout from "@/layouts/Default";
 import type { FC } from "react";
 
-const MarketingLayout: FC<Readonly<{ children: React.ReactNode }>> = ({
+const MarketingGroupLayout: FC<Readonly<{ children: React.ReactNode }>> = ({
   children,
 }) => {
   return <DefaultLayout>{children}</DefaultLayout>;
 };
 
-export default MarketingLayout;
+export default MarketingGroupLayout;

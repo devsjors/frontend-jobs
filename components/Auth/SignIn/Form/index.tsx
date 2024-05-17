@@ -1,18 +1,10 @@
-import { signIn } from "@/auth";
 import type { FC } from "react";
 
-const AuthSignInForm: FC = () => {
-  return (
-    <form
-      action={async (formData) => {
-        "use server";
+type AuthSignInFormProps = React.FormHTMLAttributes<HTMLFormElement>;
 
-        await signIn("credentials", {
-          formData: formData,
-          redirectTo: "/",
-        });
-      }}
-    >
+const AuthSignInForm: FC<Readonly<AuthSignInFormProps>> = ({ ...props }) => {
+  return (
+    <form {...props}>
       <div>
         <label htmlFor="email">Email</label>
         <input id="email" name="email" type="email" />
