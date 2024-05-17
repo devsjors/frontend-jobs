@@ -2,26 +2,27 @@
   "name": "frontend-jobs",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:start": "npx supabase start",
+    "db:stop": "npx supabase stop",
+    "db:gen-types": "npx supabase gen types typescript --local > types/supabase.ts"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.3.0",
+    "@supabase/supabase-js": "^2.43.2",
     "clsx": "^2.1.1",
     "lucide-react": "^0.378.0",
     "next": "14.2.3",
-    "next-auth": "^5.0.0-beta.18",
-    "pg": "^8.11.5",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/pg": "^8.11.6",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.19",
@@ -29,6 +30,7 @@
     "eslint-config-next": "14.2.3",
     "postcss": "^8",
     "postcss-import": "^16.1.0",
+    "supabase": "^1.167.4",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
