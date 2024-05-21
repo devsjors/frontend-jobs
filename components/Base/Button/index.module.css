@@ -1,0 +1,15 @@
+.base {
+  @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+}
+
+.block {
+  @apply w-full flex justify-center items-center;
+}
+
+.variant--default {
+  @apply bg-primary text-white hover:bg-primary/90;
+}
+
+.size--default {
+  @apply px-4 py-2;
+}

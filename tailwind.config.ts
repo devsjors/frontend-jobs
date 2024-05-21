@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config: Config = {
@@ -10,6 +11,9 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+      },
+      colors: {
+        primary: { ...colors.blue, DEFAULT: colors.blue[500] },
       },
     },
   },

@@ -1,3 +1,6 @@
+import BaseButton from "@/components/Base/Button";
+import BaseInput from "@/components/Base/Input";
+import BaseLabel from "@/components/Base/Label";
 import type { FC } from "react";
 
 type AuthSignUpFormProps = React.FormHTMLAttributes<HTMLFormElement>;
@@ -6,16 +9,16 @@ const AuthSignUpForm: FC<Readonly<AuthSignUpFormProps>> = ({ ...props }) => {
   return (
     <form {...props}>
       <div>
-        <label htmlFor="email">Email</label>
-        <input id="email" name="email" type="email" />
+        <BaseLabel htmlFor="email">Email</BaseLabel>
+        <BaseInput id="email" name="email" type="email" />
       </div>
 
       <div>
-        <label htmlFor="password">Password</label>
-        <input id="password" name="password" type="password" />
+        <BaseLabel htmlFor="password">Password</BaseLabel>
+        <BaseInput id="password" name="password" type="password" />
       </div>
 
-      <button>Sign Up</button>
+      <BaseButton block>Sign up</BaseButton>
     </form>
   );
 };
