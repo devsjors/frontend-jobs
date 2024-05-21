@@ -1,5 +1,5 @@
 import { signUp } from "@/actions/auth";
-import AuthSignUpForm from "@/components/Auth/SignUp/Form";
+import AuthSignUpForm from "@/components/Auth/SignUpForm";
 import { Command } from "lucide-react";
 import Link from "next/link";
 import type { FC } from "react";
