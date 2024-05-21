@@ -1,6 +1,5 @@
 "use client";
 
-import { signOut } from "@/actions/auth";
 import { createClient } from "@/lib/supabase/client";
 import { type User } from "@supabase/supabase-js";
 import { Command, Menu, X } from "lucide-react";
@@ -34,21 +33,11 @@ const NavBar: FC<Readonly<{ user: User | null }>> = ({ user }) => {
           </div>
 
           <div className={isMenuOpen ? styles.navMobile : styles.nav}>
-            <div className={styles.mobileContainer}>
-              <ul className={styles.navItems}>
-                <li>Nav item X</li>
-                <li>Nav item Y</li>
-                <li>Nav item Z</li>
-
-                {user && (
-                  <>
-                    <li>Profile</li>
-                  </>
-                )}
-              </ul>
-
-              {user && <button onClick={() => signOut()}>Sign out</button>}
-            </div>
+            <ul className={styles.navItems}>
+              <li>Nav item X</li>
+              <li>Nav item Y</li>
+              <li>Nav item Z</li>
+            </ul>
           </div>
 
           <div className={styles.authButtonsAndMobileItemsToggler}>
@@ -61,6 +50,8 @@ const NavBar: FC<Readonly<{ user: User | null }>> = ({ user }) => {
                 </Link>
               </>
             )}
+
+            {user && <div>UserDropdown</div>}
 
             <button
               type="button"

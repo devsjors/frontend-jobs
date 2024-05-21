@@ -1,7 +1,6 @@
-import type { FC } from "react";
-
 import NavBar from "@/components/Containers/NavBar";
 import { createClient } from "@/lib/supabase/server";
+import type { FC } from "react";
 
 const WithNavBar: FC = async () => {
   const supabase = createClient();

@@ -21,21 +21,13 @@
 .nav {
   @apply hidden lg:flex;
 
-  .profileInfo {
-    @apply hidden;
-  }
-
   .navItems {
     @apply flex items-center gap-x-8;
   }
 }
 
 .navMobile {
-  @apply fixed h-[calc(100dvh-4rem-1px)] inset-0 top-[calc(4rem+1px)] bg-white;
-
-  .mobileContainer {
-    @apply mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-6 max-w-7xl space-y-4;
-  }
+  @apply fixed h-[calc(100dvh-4rem-1px)] inset-0 top-[calc(4rem+1px)] bg-white mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-6 max-w-7xl;
 }
 
 .authButtonsAndMobileItemsToggler {
@@ -49,36 +41,3 @@
 .mobileItemsToggler {
   @apply block lg:hidden;
 }
-
-/*
-.logoAndMobileItemsToggler {
-  @apply flex h-16 shrink-0 items-center lg:flex lg:h-full lg:items-center;
-}
-
-.logoWrapper {
-  @apply flex-1 items-center space-x-2 sm:flex;
-
-  svg {
-    @apply size-5;
-  }
-
-  span {
-    @apply hidden font-bold text-sm sm:inline-block;
-  }
-}
-
-.navInteractionIcon {
-  @apply size-6;
-}
-
-.mobileItemsToggler {
-  @apply block cursor-pointer lg:hidden;
-}
-
-.main {
-  @apply flex-1 border-t border-gray-200 flex-col lg:flex lg:flex-row lg:items-center lg:border-t-0;
-}
-
-.navItems {
-  @apply flex flex-col gap-3 lg:gap-1 p-4 lg:flex-1 lg:flex-row lg:p-0;
-} */
