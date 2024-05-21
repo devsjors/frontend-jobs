@@ -1,16 +1,21 @@
 "use client";
 
+import { signOut } from "@/actions/auth";
+import { createClient } from "@/lib/supabase/client";
+import { type User } from "@supabase/supabase-js";
 import { Command, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState, type FC } from "react";
 import styles from "./index.module.css";
+
+const supabase = createClient();
 
 const navInteractionIcons = {
   open: <Menu className={styles.navInteractionIcon} />,
   close: <X className={styles.navInteractionIcon} />,
 };
 
-const NavBar: FC = () => {
+const NavBar: FC<Readonly<{ user: User | null }>> = ({ user }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -28,20 +33,34 @@ const NavBar: FC = () => {
             </Link>
           </div>
 
-          <div className={isMenuOpen ? styles.navItemsMobile : styles.navItems}>
-            <ul>
-              <li>Nav item X</li>
-              <li>Nav item Y</li>
-              <li>Nav item Z</li>
-            </ul>
+          <div className={isMenuOpen ? styles.navMobile : styles.nav}>
+            <div className={styles.mobileContainer}>
+              <ul className={styles.navItems}>
+                <li>Nav item X</li>
+                <li>Nav item Y</li>
+                <li>Nav item Z</li>
+
+                {user && (
+                  <>
+                    <li>Profile</li>
+                  </>
+                )}
+              </ul>
+
+              {user && <button onClick={() => signOut()}>Sign out</button>}
+            </div>
           </div>
 
           <div className={styles.authButtonsAndMobileItemsToggler}>
-            <Link href="/login">Sign in</Link>
+            {!user && (
+              <>
+                <Link href="/login">Sign in</Link>
 
-            <Link href="/register" className={styles.signUpLink}>
-              Sign up
-            </Link>
+                <Link href="/register" className={styles.signUpLink}>
+                  Sign up
+                </Link>
+              </>
+            )}
 
             <button
               type="button"
