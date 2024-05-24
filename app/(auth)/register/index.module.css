@@ -2,8 +2,12 @@
   @apply size-6;
 }
 
-.form {
+.wrapper {
   @apply mt-6 w-full max-w-md space-y-4;
+}
+
+.form {
+  @apply space-y-4;
 }
 
 .signInLink {

@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { LoaderCircle } from "lucide-react";
 import { Fragment, type FC } from "react";
 import styles from "./index.module.css";
 
@@ -11,6 +12,7 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps & {
     asChild?: boolean;
     block?: boolean;
+    loading?: boolean;
   };
 
 const BaseButton: FC<Readonly<ButtonProps>> = ({
@@ -19,6 +21,8 @@ const BaseButton: FC<Readonly<ButtonProps>> = ({
   size = "default",
   asChild = false,
   block = false,
+  loading = false,
+  children,
   ...props
 }) => {
   const Comp = asChild ? Fragment : "button";
@@ -35,7 +39,10 @@ const BaseButton: FC<Readonly<ButtonProps>> = ({
         className
       )}
       {...props}
-    />
+    >
+      {loading && <LoaderCircle className={styles.loader} />}
+      {children}
+    </Comp>
   );
 };
 
