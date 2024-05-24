@@ -1,13 +1,17 @@
+"use client";
+
+import { signin } from "@/actions/auth";
 import BaseButton from "@/components/Base/Button";
 import BaseInput from "@/components/Base/Input";
 import BaseLabel from "@/components/Base/Label";
 import type { FC } from "react";
+import { useFormStatus } from "react-dom";
 
 type AuthSignInFormProps = React.FormHTMLAttributes<HTMLFormElement>;
 
 const AuthSignInForm: FC<Readonly<AuthSignInFormProps>> = ({ ...props }) => {
   return (
-    <form {...props}>
+    <form action={signin} {...props}>
       <div>
         <BaseLabel htmlFor="email">Email</BaseLabel>
         <BaseInput id="email" name="email" type="email" />
@@ -18,9 +22,17 @@ const AuthSignInForm: FC<Readonly<AuthSignInFormProps>> = ({ ...props }) => {
         <BaseInput id="password" name="password" type="password" />
       </div>
 
-      <BaseButton block>Sign in</BaseButton>
+      <SubmitButton>Sign in</SubmitButton>
     </form>
   );
+};
+
+type SubmitButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+
+const SubmitButton: FC<Readonly<SubmitButtonProps>> = ({ ...props }) => {
+  const { pending } = useFormStatus();
+
+  return <BaseButton block loading={pending} disabled={pending} {...props} />;
 };
 
 export default AuthSignInForm;

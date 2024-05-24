@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { signupSchema } from "@/schemas/auth/signup";
 import { redirect } from "next/navigation";
 
-export const signIn = async (formData: FormData) => {
+export const signin = async (formData: FormData) => {
   const supabase = createClient();
 
   const { error } = await supabase.auth.signInWithPassword({
@@ -13,11 +13,10 @@ export const signIn = async (formData: FormData) => {
   });
 
   if (error) {
-    console.error(error);
-    return;
+    return redirect(`/login?error=${error.message}`);
   }
 
-  redirect("/");
+  return redirect("/");
 };
 
 export const signup = async (_: unknown, formData: FormData) => {
