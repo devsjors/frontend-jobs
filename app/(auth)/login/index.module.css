@@ -1,0 +1,19 @@
+.logo {
+  @apply size-6;
+}
+
+.wrapper {
+  @apply mt-6 w-full max-w-md space-y-4;
+}
+
+.form {
+  @apply space-y-4;
+}
+
+.signUpLink {
+  @apply text-sm text-center mt-6;
+
+  a {
+    @apply underline underline-offset-4;
+  }
+}
