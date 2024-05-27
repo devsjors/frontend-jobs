@@ -1,13 +1,11 @@
 "use client";
 
-import { createClient } from "@/lib/supabase/client";
+import { signOut } from "@/actions/auth";
 import { type User } from "@supabase/supabase-js";
 import { Command, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState, type FC } from "react";
 import styles from "./index.module.css";
-
-const supabase = createClient();
 
 const navInteractionIcons = {
   open: <Menu className={styles.navInteractionIcon} />,
@@ -51,7 +49,14 @@ const NavBar: FC<Readonly<{ user: User | null }>> = ({ user }) => {
               </>
             )}
 
-            {user && <div>UserDropdown</div>}
+            {user && (
+              <div>
+                <p>UserDropdown</p>
+                <button type="button" onClick={() => signOut()}>
+                  Sign out
+                </button>
+              </div>
+            )}
 
             <button
               type="button"
